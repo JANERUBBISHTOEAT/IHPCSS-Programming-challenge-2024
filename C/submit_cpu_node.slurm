@@ -10,8 +10,8 @@
 # The name of the output file
 #SBATCH -o output.txt
 
-# The partition to use, shared CPU nodes in this case
-#SBATCH -p RM-shared
+# The partition to use, compute nodes in this case
+#SBATCH -p compute
 
 # Jobs are capped at 30 seconds (Your code should run for ~10 seconds anyway)
 #SBATCH -t 00:00:30
@@ -36,7 +36,7 @@ export OMP_PLACES=cores;
 export OMP_PROC_BIND=true;
 
 # Load the modules needed
-module load cuda/11.7.1 nvhpc/22.9 openmpi/4.0.5-nvhpc22.9
+module load StdEnv/2023 gcc/14.3 openmpi/5.0.8
 
 # Compile everything
 make
